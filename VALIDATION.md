@@ -1,0 +1,11 @@
+# Validation notes
+
+The live browser session loaded the app without a runtime error. Desktop and mobile screenshots show the two-rail console and the stacked mobile telemetry strip. Activating the landing checkbox correctly enters the fake analysis transition and advances to Challenge 1. Selecting the visually human candidate advances to Challenge 2 and updates confidence from 42% to 46%, attempts to 01, and challenges to 1/5. The traffic-light challenge correctly registers a wrong selection, updates the audit trail to a humorous failure message, and keeps the challenge active for another attempt.
+
+Remaining interactive checks to run: the second-round traffic-light success, text input, reaction states, moving checkbox, final boss, success summary, and replay reset. Browser preview mode adds a non-app preview banner at the bottom; that banner is not part of the deployed page.
+The live browser test also confirmed that selecting all four classified signals produces the deliberate second round: the audit trail reports “New objects detected,” telemetry changes to attempts 03 and suspicion 23%, and the grid resets for another solvable pass.
+The regenerated traffic grid remains keyboard/pointer selectable with its selected count updating correctly; the four signal tiles remain consistent and solvable in the local deterministic test state.
+In the regenerated round, selecting all four signal tiles updates the selected counter from 1 through 4 while the audit trail remains visible, confirming the round is recoverable after the goalpost shift.
+Live testing caught one issue: the displayed code could contain a lowercase character while the input normalizes to uppercase, causing a correct transcription to be rejected. The validator was patched to compare uppercase-normalized values, preserving the deliberately ambiguous display while keeping the task solvable.
+After the validator patch, the same displayed H7x9Q2 code was accepted and the engine advanced to Challenge 4, with completed count 3/5 and confidence 48%. The reaction test rendered with its waiting state and the hint “TAB + SPACE supported.”
+The first reaction test was left idle long enough to reach the late state; that revealed a stuck-state risk. The component now exposes a fresh solvable round after early or late clicks and uses a more forgiving 2.2–3.7 second reaction window.
