@@ -67,3 +67,8 @@ The mark is a bold, text-free symbol: a squared eye made from two offset bracket
 - Use charcoal material layers, not flat black, to maintain depth.
 - No purple gradients, no generic rounded-card dashboard, and no permanent glow haze.
 - Use generated art only where it adds a distinct job; the challenge tiles remain intentionally iconographic and procedural so gameplay stays clear.
+
+- The top-left identity is a custom security-console lockup: the squared eye mark now has an inset terminal frame and Acid Validation cursor notch, while the wordmark uses a serial slash treatment instead of plain text.
+- “SECURITY CHECK” is the recurring primary framing motif: it uses a clipped command-strip label, a live amber activity dot, and reluctant operator wording.
+- Telemetry carries machine-state rows for link mode, profile, and appeal policy; chartreuse remains reserved for active validation and authoritative confidence/progress states.
+- Visible decision copy should sound like an official determination from a reluctant operator, with dry suspicion preferred over neutral UI phrasing.

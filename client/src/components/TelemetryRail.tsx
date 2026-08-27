@@ -29,7 +29,7 @@ export default function TelemetryRail({ snapshot }: TelemetryRailProps) {
         <div className="micro-label">HUMAN CONFIDENCE</div>
         <div className="confidence-value">{snapshot.confidence}<span>%</span></div>
         <div className="confidence-track"><div className="confidence-fill" style={{ width: `${snapshot.confidence}%` }} /></div>
-        <div className="confidence-caption">Confidence is not a feeling.</div>
+        <div className="confidence-caption"><span>Confidence is not a feeling.</span><span className="confidence-state">{snapshot.confidence >= 50 ? "PASSING" : "UNCERTAIN"}</span></div>
       </div>
       <div className="metric-stack">
         <Metric label="Suspicion level" value={`${snapshot.suspicion}%`} tone="amber" icon={<ShieldAlert size={15} />} />
@@ -37,6 +37,11 @@ export default function TelemetryRail({ snapshot }: TelemetryRailProps) {
         <Metric label="Challenges" value={`${snapshot.completed}/${snapshot.challengeOrder.length || "—"}`} tone="green" icon={<TimerReset size={15} />} />
       </div>
       <div className="rail-divider" />
+      <div className="rail-events" aria-label="Machine state">
+        <div><span>LINK MODE</span><strong>LOCAL ONLY</strong></div>
+        <div><span>PROFILE</span><strong>{modeName}</strong></div>
+        <div><span>POLICY</span><strong>NO APPEALS</strong></div>
+      </div>
       <div className="current-record">
         <div className="micro-label">CURRENT RECORD</div>
         <div className="record-name">{current?.title ?? "No active challenge"}</div>
@@ -44,7 +49,7 @@ export default function TelemetryRail({ snapshot }: TelemetryRailProps) {
       </div>
       <div className="rail-footer">
         <div className="micro-label">SEQUENCE PROGRESS</div>
-        <div className="sequence-count"><strong>{Math.max(snapshot.challengeIndex + 1, 0).toString().padStart(2, "0")}</strong><span>/</span><span>{snapshot.challengeOrder.length.toString().padStart(2, "0")}</span></div>
+        <div className="sequence-count"><strong>{Math.max(snapshot.challengeIndex + 1, 0).toString().padStart(2, "0")}</strong><span>/</span><span>{snapshot.challengeOrder.length.toString().padStart(2, "0")}</span><small>STAGES CLEARED</small></div>
         <div className="sequence-track"><div style={{ width: `${progress}%` }} /></div>
       </div>
     </aside>

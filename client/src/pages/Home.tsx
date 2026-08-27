@@ -8,9 +8,9 @@ import { useChallengeGame } from "@/hooks/useChallengeGame";
 import type { DifficultyMode } from "@/types/game";
 
 const modeCards: { id: DifficultyMode; name: string; detail: string; count: string; tag: string }[] = [
-  { id: "normal", name: "Normal", detail: "A reasonable proof of personhood. By our standards.", count: "05 CHALLENGES", tag: "RECOMMENDED" },
-  { id: "annoying", name: "Annoying", detail: "More tasks. Less certainty. Mild bureaucratic hostility.", count: "07 CHALLENGES", tag: "ESCALATED" },
-  { id: "hell", name: "CAPTCHA FROM HELL", detail: "Randomized requirements, recursive checks, no refunds.", count: "09 CHALLENGES", tag: "YOU CHOSE THIS" },
+  { id: "normal", name: "Normal", detail: "A reasonable proof of personhood. The operator has approved this once.", count: "05 CHALLENGES", tag: "RECOMMENDED" },
+  { id: "annoying", name: "Annoying", detail: "More tasks. Less certainty. You seemed too calm.", count: "07 CHALLENGES", tag: "ESCALATED" },
+  { id: "hell", name: "CAPTCHA FROM HELL", detail: "Randomized requirements, recursive checks, no appeals.", count: "09 CHALLENGES", tag: "YOU CHOSE THIS" },
 ];
 
 function ping(muted: boolean, frequency = 420) {
@@ -34,14 +34,14 @@ function Landing({ mode, onMode, onStart, muted }: { mode: DifficultyMode; onMod
     <div className="landing-view">
       <div className="landing-hero">
         <div className="system-stamp"><span className="stamp-dot" /> AUTHENTICATION GATE / INBOUND REQUEST</div>
-        <div className="hero-copy"><span className="eyebrow">SECURITY CHECK / HUMAN VERIFICATION REQUIRED</span><h1>Prove you're<br /><em>not a robot.</em></h1><p>Before continuing, please verify that you are human. This will be quick, professional, and almost certainly not a trap.</p></div>
+        <div className="hero-copy"><div className="command-label"><span className="command-label-dot" /> SECURITY CHECK <i>/</i> HUMAN VERIFICATION REQUIRED</div><h1>Prove you're<br /><em>not a robot.</em></h1><p>Before continuing, please verify that you are human. This will be quick, professional, and almost certainly not a trap.</p></div>
         <div className="verification-panel">
           <div className="panel-top"><div><span className="micro-label">VERIFICATION REQUEST</span><strong>Suspicious activity detected.</strong></div><LockKeyhole size={17} /></div>
           <button type="button" className="fake-checkbox" onClick={onStart}><span className="checkbox-square" /><span>I'm not a robot</span><ChevronRight size={17} /></button>
           <div className="panel-status"><span className="status-led" /> Verification required <span className="panel-status-right">SECURE / TLS 1.3</span></div>
         </div>
       </div>
-      <div className="mode-selector"><div className="mode-selector-head"><div><span className="eyebrow">SELECT A VERIFICATION PROFILE</span><h2>How difficult should being human be?</h2></div><span className="micro-label">MODE CONTROL / 03 OPTIONS</span></div><div className="mode-grid">{modeCards.map((card) => <button type="button" key={card.id} className={`mode-card ${mode === card.id ? "active" : ""}`} onClick={() => { onMode(card.id); ping(muted, 330); }}><span className="mode-tag">{card.tag}</span><strong>{card.name}</strong><span className="mode-detail">{card.detail}</span><span className="mode-count">{card.count}<ChevronRight size={14} /></span></button>)}</div></div>
+      <div className="mode-selector"><div className="mode-selector-head"><div><span className="eyebrow">OPERATOR DIRECTIVE / SELECT PROFILE</span><h2>How difficult should being human be?</h2></div><span className="micro-label">MODE CONTROL / 03 OPTIONS</span></div><div className="mode-grid">{modeCards.map((card) => <button type="button" key={card.id} className={`mode-card ${mode === card.id ? "active" : ""}`} onClick={() => { onMode(card.id); ping(muted, 330); }}><span className="mode-tag">{card.tag}</span><strong>{card.name}</strong><span className="mode-detail">{card.detail}</span><span className="mode-count">{card.count}<ChevronRight size={14} /></span></button>)}</div></div>
       <div className="landing-foot"><span><Sparkles size={14} /> Fictional simulation — no real security service is involved.</span><span>EXPECTED SESSION: 04:32 <span className="foot-divider">/</span> NO DATA RETAINED</span></div>
     </div>
   );
