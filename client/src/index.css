@@ -1,4 +1,4 @@
-/* Blackbox Operator style: a credible charcoal security console with steel-blue telemetry, acid-chartreuse validation, amber suspicion, and restrained terminal texture. */
+/* TACTICAL VERIFICATION CONSOLE: charcoal surfaces, steel telemetry, acid validation, amber suspicion. */
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -33,8 +33,8 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--acid); outl
 button:not(:disabled) { cursor: pointer; }
 
 .app-frame { min-height: 100vh; position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(circle at 12% 9%, rgba(87, 128, 151, 0.09), transparent 30%), #090b0e; }
-.ambient-backdrop { position: fixed; inset: 0; z-index: -3; background: linear-gradient(90deg, rgba(9, 11, 14, 0.98) 4%, rgba(9, 11, 14, 0.9) 52%, rgba(9, 11, 14, 0.96)), url('/manus-storage/captcha-console-backdrop_cccfcad2.png') center / cover; opacity: .43; }
-.scanline-layer { position: fixed; inset: 0; z-index: -2; pointer-events: none; opacity: .12; background-image: url('/manus-storage/captcha-scanline-texture_8365a151.png'), repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.03) 4px); mix-blend-mode: screen; }
+.ambient-backdrop { position: fixed; inset: 0; z-index: -3; background: linear-gradient(90deg, rgba(9, 11, 14, 0.98) 4%, rgba(9, 11, 14, 0.9) 52%, rgba(9, 11, 14, 0.96)), radial-gradient(circle at 72% 22%, rgba(114,169,199,.13), transparent 28%), radial-gradient(circle at 18% 80%, rgba(199,243,107,.045), transparent 32%), #090b0e; opacity: .43; }
+.scanline-layer { position: fixed; inset: 0; z-index: -2; pointer-events: none; opacity: .12; background-image: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.03) 4px); mix-blend-mode: screen; }
 .app-frame::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(199, 243, 107, .025), transparent 22%, transparent 80%, rgba(232, 182, 91, .025)); }
 
 .topbar { max-width: 1560px; min-height: 76px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
