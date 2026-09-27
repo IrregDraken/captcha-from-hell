@@ -1,6 +1,6 @@
-// Blackbox Operator style: the shell is an offset operations console with strict metadata, one branded acid signal, and enough breathing room for the joke to land.
+// Verification console shell: strict metadata, focused telemetry, and enough breathing room for the joke to land.
 
-import { RotateCcw, Volume2, VolumeX, Wifi } from "lucide-react";
+import { RotateCcw, ShieldCheck, Volume2, VolumeX, Wifi } from "lucide-react";
 import type { EngineSnapshot } from "@/types/game";
 import TelemetryRail from "@/components/TelemetryRail";
 
@@ -12,14 +12,14 @@ interface CaptchaShellProps {
   onReset: () => void;
 }
 
-export default function CaptchaShell({ snapshot, children, muted, onToggleMute, onReset }: CaptchaShellProps) {
+function ShieldMark() { return <ShieldCheck size={18} strokeWidth={1.7} />; }\n\nexport default function CaptchaShell({ snapshot, children, muted, onToggleMute, onReset }: CaptchaShellProps) {
   return (
     <div className="app-frame">
       <div className="ambient-backdrop" aria-hidden="true" />
       <div className="scanline-layer" aria-hidden="true" />
       <header className="topbar">
         <div className="brand-lockup">
-          <div className="brand-mark"><img src="/manus-storage/captcha-eye-mark_a0e2d007.png" alt="" /><span className="mark-notch" aria-hidden="true" /></div>
+          <div className="brand-mark" aria-hidden="true"><ShieldMark /><span className="mark-notch" /></div>
           <div className="brand-copy"><div className="brand-name"><span className="brand-serial">CAPTCHA</span><i aria-hidden="true">/</i><span>FROM HELL</span></div><div className="brand-sub">HUMANITY VERIFICATION SYSTEM / BUILD 0.9.7</div></div>
         </div>
         <div className="topbar-status"><span className="status-connection"><Wifi size={14} /> SECURE LINK</span><span className="status-divider" /><span className="status-session">SESSION {snapshot.startedAt ? "ACTIVE" : "STANDBY"}</span></div>
